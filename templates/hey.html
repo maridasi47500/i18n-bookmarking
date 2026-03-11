@@ -1,0 +1,22 @@
+<h1># i18n-bookmarking</h1>
+<p>que cherchestu dex consiels, de voyage?</p>
+// Source - https://stackoverflow.com/a/3024846
+// Posted by Gert Grenander, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-03-11, License - CC BY-SA 4.0
+
+<a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">Bookmark This Page</a>
+
+<script>
+$(document).ready(function() {
+  $("#bookmarkme").click(function() {
+    if (window.sidebar) { // Mozilla Firefox Bookmark
+      window.sidebar.addPanel(location.href,document.title,"");
+    } else if(window.external) { // IE Favorite
+      window.external.AddFavorite(location.href,document.title); }
+    else if(window.opera && window.print) { // Opera Hotlist
+      this.title=document.title;
+      return true;
+    }
+  });
+});
+</script>
